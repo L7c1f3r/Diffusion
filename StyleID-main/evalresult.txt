@@ -1,0 +1,14 @@
+pnp + styleid:
+Average LPIPS distance: 0.283704095795041                                                                                                                            
+Average CLIP score: 0.8301318619932447                                                                                                                               
+Average SSIM:  0.659574670509371
+
+pnp:
+Average LPIPS distance: 0.4136330601005327                                                                                                                           
+Average CLIP score: 0.7461569472437813                                                                                                                               
+Average SSIM:  0.5483927833312012
+
+controlnet:
+Average LPIPS distance: 0.5770060371784936                                                                                                                           
+Average CLIP score: 0.7040781801655179                                                                                                                               
+Average SSIM:  0.1986659116262877
