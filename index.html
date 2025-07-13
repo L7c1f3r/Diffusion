@@ -1,0 +1,1116 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIoT-Enhanced Seasonal Landscape Transformation Camera System</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            accent: '#8B5CF6',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .transition-transform-opacity {
+        transition-property: transform, opacity;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
+  </style>
+</head>
+<body class="font-inter bg-light text-dark antialiased">
+  <!-- Navigation Bar -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-[50] transition-all duration-300 bg-transparent">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="#hero" class="text-2xl font-bold text-white text-shadow transition-colors duration-300 hover:text-secondary">
+          AIoT Landscape <span class="text-primary">Transformer</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#hero" class="text-white hover:text-secondary transition-colors duration-300">Home</a>
+          <a href="#demo" class="text-white hover:text-secondary transition-colors duration-300">Demo</a>
+          <a href="#architecture" class="text-white hover:text-secondary transition-colors duration-300">Architecture</a>
+          <a href="#team" class="text-white hover:text-secondary transition-colors duration-300">Team</a>
+          <a href="#contact" class="text-white hover:text-secondary transition-colors duration-300">Contact</a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md shadow-lg absolute w-full z-[51]">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="#hero" class="text-dark hover:text-primary transition-colors duration-300 py-2">Home</a>
+        <a href="#demo" class="text-dark hover:text-primary transition-colors duration-300 py-2">Demo</a>
+        <a href="#architecture" class="text-dark hover:text-primary transition-colors duration-300 py-2">Architecture</a>
+        <a href="#team" class="text-dark hover:text-primary transition-colors duration-300 py-2">Team</a>
+        <a href="#contact" class="text-dark hover:text-primary transition-colors duration-300 py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-dark via-primary/90 to-accent/80 text-white relative overflow-hidden pt-[80px]">
+    <div class="absolute inset-0 bg-[url('https://picsum.photos/id/1036/1920/1080')] bg-cover bg-center opacity-20"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+    
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8 animate-fade-in">
+          <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight">
+            AIoT-Enhanced <br>
+            <span class="text-secondary">Seasonal Landscape</span> <br>
+            Transformation System
+          </h1>
+          <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 max-w-lg">
+            Our system combines artificial intelligence and Internet of Things technology to achieve seasonal transformation and landscape enhancement of scenic photos, providing innovative solutions for digital image processing.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#demo" class="px-8 py-3 bg-secondary text-dark font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              Try Demo
+            </a>
+            <a href="#architecture" class="px-8 py-3 bg-transparent border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300">
+              Learn Architecture
+            </a>
+          </div>
+        </div>
+        
+        <div class="hidden md:block relative">
+          <div class="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <img src="https://picsum.photos/id/1018/800/1000" alt="Seasonal transformation example" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/50 to-accent/50 mix-blend-overlay"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-dark to-transparent">
+              <h3 class="text-2xl font-bold mb-2">Seasonal Transformation Technology</h3>
+              <p class="text-white/80">One-click transformation from spring to winter</p>
+            </div>
+          </div>
+          
+          <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -z-10"></div>
+          <div class="absolute -top-10 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl -z-10"></div>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#demo" class="text-white/70 hover:text-white transition-colors duration-300">
+          <i class="fa fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Demo Section -->
+  <section id="demo" class="py-24 bg-light">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">System Demo</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Upload an image or use your camera, adjust parameters, and generate seasonal transformation effects.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Left: Input Area -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 md:col-span-1">
+          <h3 class="text-xl font-semibold mb-6 flex items-center">
+            <i class="fa fa-upload text-primary mr-2"></i> Input Image
+          </h3>
+          
+          <div class="space-y-6">
+            <!-- Image Upload -->
+            <div id="image-upload" class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-primary transition-colors duration-300 cursor-pointer">
+              <i class="fa fa-cloud-upload text-4xl text-gray-400 mb-4"></i>
+              <p class="text-gray-500">Click or drag an image here</p>
+              <p class="text-xs text-gray-400 mt-2">Supports JPG, PNG formats</p>
+              <input type="file" id="file-input" accept="image/*" class="hidden">
+            </div>
+            
+            <!-- Or Use Camera -->
+            <div class="text-center">
+              <span class="text-gray-400 text-sm">Or</span>
+            </div>
+            
+            <!-- Camera Button -->
+            <button id="camera-button" class="w-full py-3 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center">
+              <i class="fa fa-video-camera mr-2"></i> Use Camera
+            </button>
+            
+            <!-- Camera View (Hidden by Default) -->
+            <div id="camera-view" class="hidden">
+              <div class="relative">
+                <video id="video" class="w-full h-64 object-cover rounded-lg mb-4"></video>
+                <button id="capture-button" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-white p-3 rounded-full shadow-lg">
+                  <i class="fa fa-camera"></i>
+                </button>
+              </div>
+              <button id="cancel-camera" class="w-full py-3 bg-gray-100 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors duration-300">
+                Cancel
+              </button>
+            </div>
+            
+            <!-- Season Selection -->
+            <div>
+              <label class="block text-gray-700 mb-2 font-medium">Season Transformation</label>
+              <select id="season-select" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="autumn">Autumn</option>
+                <option value="winter">Winter</option>
+              </select>
+            </div>
+            
+            <!-- Parameter Adjustment -->
+            <div>
+              <label class="block text-gray-700 mb-2 font-medium">Season Intensity</label>
+              <input type="range" id="intensity-slider" min="1" max="10" value="7" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary">
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>Low</span>
+                <span>High</span>
+              </div>
+            </div>
+            
+            <!-- Style Selection -->
+            <div>
+              <label class="block text-gray-700 mb-2 font-medium">Rendering Style</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button class="style-btn py-2 border border-gray-300 rounded-lg hover:border-primary transition-colors duration-300" data-style="realistic">Realistic</button>
+                <button class="style-btn py-2 border border-gray-300 rounded-lg hover:border-primary transition-colors duration-300" data-style="artistic">Artistic</button>
+                <button class="style-btn py-2 border border-gray-300 rounded-lg hover:border-primary transition-colors duration-300" data-style="watercolor">Watercolor</button>
+                <button class="style-btn py-2 border border-gray-300 rounded-lg hover:border-primary transition-colors duration-300" data-style="cartoon">Cartoon</button>
+              </div>
+            </div>
+            
+            <!-- Generate Button -->
+            <button id="generate-button" class="w-full py-4 bg-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 flex items-center justify-center">
+              <i class="fa fa-magic mr-2"></i> Generate Seasonal Transformation
+            </button>
+          </div>
+        </div>
+        
+        <!-- Right: Results Display Area -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 md:col-span-2">
+          <h3 class="text-xl font-semibold mb-6 flex items-center">
+            <i class="fa fa-eye text-primary mr-2"></i> Results Preview
+          </h3>
+          
+          <!-- Loading State (Hidden by Default) -->
+          <div id="loading-indicator" class="hidden flex flex-col items-center justify-center py-16">
+            <div class="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mb-4"></div>
+            <p class="text-gray-600">Processing image, please wait...</p>
+            <p class="text-xs text-gray-400 mt-2">Processing time depends on image complexity and server load</p>
+          </div>
+          
+          <!-- Image Comparison Display (Hidden by Default) -->
+          <div id="result-container" class="hidden">
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Original Image -->
+              <div>
+                <h4 class="text-gray-700 font-medium mb-2">Original Image</h4>
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
+                  <img id="original-image" src="" alt="Original image" class="w-full h-full object-cover">
+                </div>
+              </div>
+              
+              <!-- Generated Image -->
+              <div>
+                <h4 class="text-gray-700 font-medium mb-2">
+                  <span id="generated-season">Spring</span> Transformation Result
+                </h4>
+                <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
+                  <img id="generated-image" src="" alt="Generated image" class="w-full h-full object-cover">
+                  <div class="absolute top-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">AI Generated</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Download Button -->
+            <div class="mt-8 flex justify-center">
+              <button id="download-button" class="px-8 py-3 bg-secondary text-dark font-semibold rounded-lg shadow hover:shadow-lg hover:bg-secondary/90 transition-all duration-300 flex items-center">
+                <i class="fa fa-download mr-2"></i> Download Result
+              </button>
+            </div>
+          </div>
+          
+          <!-- Default Message -->
+          <div id="default-message" class="flex flex-col items-center justify-center py-16 text-center">
+            <i class="fa fa-image text-5xl text-gray-200 mb-4"></i>
+            <p class="text-gray-400">After uploading an image and generating the seasonal transformation, the result will be displayed here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Architecture Section -->
+  <section id="architecture" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">System Architecture</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Our AIoT system integrates state-of-the-art artificial intelligence and Internet of Things technologies to achieve efficient landscape seasonal transformation.</p>
+      </div>
+      
+      <!-- System Architecture Diagram -->
+      <div class="relative mb-16">
+        <div class="h-[400px] bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
+          <canvas id="architecture-diagram" class="w-full h-full"></canvas>
+          
+          <!-- Architecture Diagram Labels -->
+          <div class="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+            Image Acquisition Layer
+          </div>
+          <div class="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+            Edge Computing Layer
+          </div>
+          <div class="absolute top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-dark px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+            Cloud Processing Layer
+          </div>
+          <div class="absolute top-1/2 left-3/4 transform -translate-x-1/2 -translate-y-1/2 bg-dark text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
+            User Interaction Layer
+          </div>
+        </div>
+      </div>
+      
+      <!-- Detailed Architecture Explanation -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Left: System Modules -->
+        <div>
+          <h3 class="text-xl font-semibold mb-6">System Modules</h3>
+          
+          <div class="space-y-4">
+            <!-- Module 1 -->
+            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center justify-between">
+                <h4 class="font-medium text-lg flex items-center">
+                  <i class="fa fa-camera text-primary mr-2"></i> Intelligent Image Acquisition Module
+                </h4>
+                <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+              </div>
+              <div class="architecture-content mt-4 hidden">
+                <p class="text-gray-600 mb-4">
+                  An IoT-based intelligent camera system capable of automatically sensing environmental light, weather conditions, and scene features,
+                  and performing real-time image preprocessing, including noise reduction, enhancement, and image quality assessment.
+                </p>
+                <ul class="text-gray-600 list-disc pl-5 space-y-1">
+                  <li>Multispectral image acquisition</li>
+                  <li>Adaptive exposure control</li>
+                  <li>Real-time image quality analysis</li>
+                  <li>Low-power design</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Module 2 -->
+            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center justify-between">
+                <h4 class="font-medium text-lg flex items-center">
+                  <i class="fa fa-microchip text-primary mr-2"></i> Edge Computing Processing Module
+                </h4>
+                <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+              </div>
+              <div class="architecture-content mt-4 hidden">
+                <p class="text-gray-600 mb-4">
+                  A lightweight AI processing unit deployed on edge devices capable of performing preliminary image processing and feature extraction,
+                  reducing data transmission volume, improving system response speed, and supporting offline operation modes.
+                </p>
+                <ul class="text-gray-600 list-disc pl-5 space-y-1">
+                  <li>Lightweight CNN model</li>
+                  <li>Feature extraction and encoding</li>
+                  <li>Data compression and transmission optimization</li>
+                  <li>Edge caching strategy</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Module 3 -->
+            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center justify-between">
+                <h4 class="font-medium text-lg flex items-center">
+                  <i class="fa fa-cloud text-primary mr-2"></i> Cloud AI Processing Center
+                </h4>
+                <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+              </div>
+              <div class="architecture-content mt-4 hidden">
+                <p class="text-gray-600 mb-4">
+                  A deep learning-based seasonal transformation model trained on large-scale datasets, capable of understanding scene content and performing reasonable seasonal transformations,
+                  while supporting continuous model learning and optimization.
+                </p>
+                <ul class="text-gray-600 list-disc pl-5 space-y-1">
+                  <li>Transformer architecture model</li>
+                  <li>Multimodal fusion technology</li>
+                  <li>Semantic understanding and scene analysis</li>
+                  <li>Continuous model learning</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Module 4 -->
+            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center justify-between">
+                <h4 class="font-medium text-lg flex items-center">
+                  <i class="fa fa-users text-primary mr-2"></i> User Interface
+                </h4>
+                <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+              </div>
+              <div class="architecture-content mt-4 hidden">
+                <p class="text-gray-600 mb-4">
+                  An intuitive and user-friendly interface supporting multiple input and output methods, including image upload, camera real-time preview, parameter adjustment, etc.,
+                  while providing result display and sharing functions.
+                </p>
+                <ul class="text-gray-600 list-disc pl-5 space-y-1">
+                  <li>Responsive web interface</li>
+                  <li>Parameterized control</li>
+                  <li>Multi-device support</li>
+                  <li>Result comparison and evaluation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right: Technical Details -->
+        <div>
+          <h3 class="text-xl font-semibold mb-6">Technical Details</h3>
+          
+          <!-- Technology Stack -->
+          <div class="bg-white rounded-xl shadow p-6 mb-8">
+            <h4 class="font-medium text-lg mb-4 flex items-center">
+              <i class="fa fa-code text-primary mr-2"></i> Technology Stack
+            </h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div class="bg-gray-50 rounded-lg p-4 text-center">
+                <i class="fa fa-database text-2xl text-primary mb-2"></i>
+                <p class="text-sm font-medium">PyTorch</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4 text-center">
+                <i class="fa fa-server text-2xl text-primary mb-2"></i>
+                <p class="text-sm font-medium">FastAPI</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4 text-center">
+                <i class="fa fa-mobile text-2xl text-primary mb-2"></i>
+                <p class="text-sm font-medium">React</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4 text-center">
+                <i class="fa fa-cubes text-2xl text-primary mb-2"></i>
+                <p class="text-sm font-medium">TensorRT</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4 text-center">
+                <i class="fa fa-wifi text-2xl text-primary mb-2"></i>
+                <p class="text-sm font-medium">MQTT</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-4 text-center">
+                <i class="fa fa-cloud text-2xl text-primary mb-2"></i>
+                <p class="text-sm font-medium">AWS IoT</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Performance Metrics -->
+          <div class="bg-white rounded-xl shadow p-6 mb-8">
+            <h4 class="font-medium text-lg mb-4 flex items-center">
+              <i class="fa fa-chart-line text-primary mr-2"></i> System Performance
+            </h4>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Average Processing Time</span>
+                  <span class="font-medium">3.2 seconds</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Image Similarity</span>
+                  <span class="font-medium">92.7%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-secondary h-2 rounded-full" style="width: 92%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Seasonal Transformation Accuracy</span>
+                  <span class="font-medium">89.3%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-accent h-2 rounded-full" style="width: 89%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Edge Device Power Consumption</span>
+                  <span class="font-medium">5.8W</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-dark h-2 rounded-full" style="width: 45%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Model Architecture -->
+          <div class="bg-white rounded-xl shadow p-6">
+            <h4 class="font-medium text-lg mb-4 flex items-center">
+              <i class="fa fa-sitemap text-primary mr-2"></i> Model Architecture
+            </h4>
+            <p class="text-gray-600 mb-4">
+              Our seasonal transformation model is based on the Transformer architecture, combining semantic segmentation and style transfer technologies to understand scene content and perform reasonable seasonal transformations.
+            </p>
+            <img src="https://picsum.photos/id/1/600/300" alt="Model architecture diagram" class="w-full h-auto rounded-lg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Our Team</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">We are an interdisciplinary team combining expertise in computer science, electronic engineering, and design.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Team Member 1 -->
+        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1005/400/500" alt="Zhang Ming - Team Leader" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <h3 class="text-xl font-bold text-white">Zhang Ming</h3>
+              <p class="text-white/80">Team Leader & Algorithm Engineer</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Responsible for overall project architecture design and core AI algorithm development, with 5 years of computer vision research experience and multiple published papers in related fields.
+            </p>
+            <div class="flex space-x-3">
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-github"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Team Member 2 -->
+        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1006/400/500" alt="Li Ting - Hardware Engineer" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <h3 class="text-xl font-bold text-white">Li Ting</h3>
+              <p class="text-white/80">Hardware Engineer</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Responsible for the hardware design and development of AIoT devices, including camera modules, edge computing units, and communication systems, with rich experience in embedded systems.
+            </p>
+            <div class="flex space-x-3">
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-github"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Team Member 3 -->
+        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1012/400/500" alt="Wang Hao - Software Engineer" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <h3 class="text-xl font-bold text-white">Wang Hao</h3>
+              <p class="text-white/80">Software Engineer</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Responsible for backend system and cloud service development, building efficient API interfaces and data processing pipelines, proficient in distributed systems and microservices architecture.
+            </p>
+            <div class="flex space-x-3">
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-github"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Team Member 4 -->
+        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1027/400/500" alt="Chen Yu - UI/UX Designer" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <h3 class="text-xl font-bold text-white">Chen Yu</h3>
+              <p class="text-white/80">UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Responsible for user interface design and interaction experience optimization, focusing on details and user needs to create intuitive and beautiful user experiences.
+            </p>
+            <div class="flex space-x-3">
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-dribbble"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-behance"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-primary/80 transition-colors duration-300">
+                <i class="fa fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Contact Us</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Have any questions or suggestions about our project? Please feel free to contact us.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label class="block text-gray-700 mb-2 font-medium">Name</label>
+                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter your name">
+              </div>
+              <div>
+                <label class="block text-gray-700 mb-2 font-medium">Email</label>
+                <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter your email">
+              </div>
+              <div>
+                <label class="block text-gray-700 mb-2 font-medium">Message</label>
+                <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter your message"></textarea>
+              </div>
+              <button type="submit" class="w-full py-4 bg-primary text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-semibold mb-6">Project Information</h3>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                  <i class="fa fa-university text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Affiliation</h4>
+                  <p class="text-gray-600">School of Computer Science and Technology, XX University</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                  <i class="fa fa-calendar text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Project Duration</h4>
+                  <p class="text-gray-600">September 2024 - June 2025</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                  <i class="fa fa-trophy text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Honors and Awards</h4>
+                  <p class="text-gray-600">University-level Outstanding Graduation Project</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                  <i class="fa fa-envelope text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Email</h4>
+                  <p class="text-gray-600">aiot-landscape@example.com</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                  <i class="fa fa-phone text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Phone</h4>
+                  <p class="text-gray-600">+86 123 4567 8901</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="bg-primary/10 p-3 rounded-full mr-4">
+                  <i class="fa fa-map-marker text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-gray-800">Address</h4>
+                  <p class="text-gray-600">XX University, XX District, XX City, XX Province, China</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">AIoT Landscape Transformer</h3>
+          <p class="text-gray-400 mb-4">
+            Seasonal landscape transformation system based on AIoT technology, providing innovative solutions for digital image processing.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+              <i class="fa fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+              <i class="fa fa-youtube-play"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#hero" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+            <li><a href="#demo" class="text-gray-400 hover:text-white transition-colors duration-300">Demo</a></li>
+            <li><a href="#architecture" class="text-gray-400 hover:text-white transition-colors duration-300">Architecture</a></li>
+            <li><a href="#team" class="text-gray-400 hover:text-white transition-colors duration-300">Team</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Project Documentation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Research Papers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">API Documentation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">User Guides</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Subscribe for Updates</h4>
+          <p class="text-gray-400 mb-4">Subscribe to our newsletter to receive the latest project updates and technical articles.</p>
+          <form class="space-y-2">
+            <input type="email" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-white" placeholder="Your email address">
+            <button type="submit" class="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors duration-300">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2025 AIoT Landscape Transformer. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.remove('bg-transparent');
+      } else {
+        navbar.classList.remove('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+        navbar.classList.add('bg-transparent');
+      }
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Close mobile menu if open
+        mobileMenu.classList.add('hidden');
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // File upload functionality
+    const imageUpload = document.getElementById('image-upload');
+    const fileInput = document.getElementById('file-input');
+    const originalImage = document.getElementById('original-image');
+    const resultContainer = document.getElementById('result-container');
+    const defaultMessage = document.getElementById('default-message');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const generatedImage = document.getElementById('generated-image');
+    const generatedSeason = document.getElementById('generated-season');
+    const seasonSelect = document.getElementById('season-select');
+    const intensitySlider = document.getElementById('intensity-slider');
+    const generateButton = document.getElementById('generate-button');
+    const downloadButton = document.getElementById('download-button');
+    const cameraButton = document.getElementById('camera-button');
+    const cameraView = document.getElementById('camera-view');
+    const video = document.getElementById('video');
+    const captureButton = document.getElementById('capture-button');
+    const cancelCamera = document.getElementById('cancel-camera');
+    
+    // Upload image
+    imageUpload.addEventListener('click', () => {
+      fileInput.click();
+    });
+    
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = (e) => {
+          originalImage.src = e.target.result;
+          defaultMessage.classList.add('hidden');
+          resultContainer.classList.remove('hidden');
+          generatedImage.src = 'https://picsum.photos/id/1039/800/600'; // Example image
+        };
+        
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+    
+    // Camera functionality
+    cameraButton.addEventListener('click', () => {
+      cameraView.classList.remove('hidden');
+      startCamera();
+    });
+    
+    cancelCamera.addEventListener('click', () => {
+      cameraView.classList.add('hidden');
+      stopCamera();
+    });
+    
+    // Start camera
+    function startCamera() {
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(stream => {
+            video.srcObject = stream;
+            video.play();
+          })
+          .catch(error => {
+            console.error('Unable to access camera:', error);
+            alert('Unable to access camera. Please ensure you have granted camera permissions.');
+          });
+      }
+    }
+    
+    // Stop camera
+    function stopCamera() {
+      if (video.srcObject) {
+        video.srcObject.getTracks().forEach(track => {
+          track.stop();
+        });
+        video.srcObject = null;
+      }
+    }
+    
+    // Capture photo
+    captureButton.addEventListener('click', () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      originalImage.src = canvas.toDataURL('image/jpeg');
+      defaultMessage.classList.add('hidden');
+      resultContainer.classList.remove('hidden');
+      generatedImage.src = 'https://picsum.photos/id/1039/800/600'; // Example image
+      
+      cameraView.classList.add('hidden');
+      stopCamera();
+    });
+    
+    // Generate button click event
+    generateButton.addEventListener('click', () => {
+      if (!originalImage.src) {
+        alert('Please upload an image or use the camera first');
+        return;
+      }
+      
+      // Show loading state
+      loadingIndicator.classList.remove('hidden');
+      resultContainer.classList.add('hidden');
+      
+      // Update text based on selected season
+      const seasonMap = {
+        'spring': 'Spring',
+        'summer': 'Summer',
+        'autumn': 'Autumn',
+        'winter': 'Winter'
+      };
+      generatedSeason.textContent = seasonMap[seasonSelect.value];
+      
+      // Simulate API call (replace with actual API call in a real project)
+      setTimeout(() => {
+        // In a real project, this would call a model on the server to generate the image
+        // For example: fetch('/api/generate', { method: 'POST', body: formData })
+        // Then process the returned result
+        
+        // Simulate generated image
+        const style = document.querySelector('.style-btn.active')?.dataset.style || 'realistic';
+        let imageId = 1039; // Default realistic style
+        
+        // Select different example images based on style
+        if (style === 'artistic') imageId = 1018;
+        if (style === 'watercolor') imageId = 1043;
+        if (style === 'cartoon') imageId = 1074;
+        
+        generatedImage.src = `https://picsum.photos/id/${imageId}/800/600`;
+        
+        // Hide loading state, show result
+        loadingIndicator.classList.add('hidden');
+        resultContainer.classList.remove('hidden');
+      }, 2000); // Simulate 2-second processing time
+    });
+    
+    // Download button click event
+    downloadButton.addEventListener('click', () => {
+      if (!generatedImage.src) return;
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.href = generatedImage.src;
+      link.download = `seasonal_transformation_${new Date().getTime()}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+    
+    // Style button selection
+    document.querySelectorAll('.style-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        document.querySelectorAll('.style-btn').forEach(b => {
+          b.classList.remove('active', 'border-primary', 'bg-primary/10');
+          b.classList.add('border-gray-300');
+        });
+        
+        // Add active class to clicked button
+        btn.classList.add('active', 'border-primary', 'bg-primary/10');
+        btn.classList.remove('border-gray-300');
+      });
+    });
+    
+    // Architecture diagram
+    window.addEventListener('load', () => {
+      const canvas = document.getElementById('architecture-diagram');
+      if (canvas && canvas.getContext) {
+        const ctx = canvas.getContext('2d');
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Get canvas dimensions
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        
+        // Set canvas dimensions (important for high DPI displays)
+        canvas.width = width * window.devicePixelRatio;
+        canvas.height = height * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        
+        // Draw architecture diagram
+        const centerX = width / 4;
+        const layerHeight = height / 4;
+        
+        // Draw layers
+        drawLayer(ctx, centerX, layerHeight * 1, "Image Acquisition Layer", "#165DFF");
+        drawLayer(ctx, centerX, layerHeight * 2, "Edge Computing Layer", "#8B5CF6");
+        drawLayer(ctx, centerX, layerHeight * 3, "Cloud Processing Layer", "#36D399");
+        
+        // Draw user interface layer
+        drawLayer(ctx, width * 3/4, layerHeight * 2, "User Interaction Layer", "#1E293B");
+        
+        // Draw connections
+        drawConnection(ctx, centerX + 100, layerHeight * 1 + 50, centerX + 100, layerHeight * 2 - 50);
+        drawConnection(ctx, centerX + 100, layerHeight * 2 + 50, centerX + 100, layerHeight * 3 - 50);
+        drawConnection(ctx, centerX + 150, layerHeight * 2, width * 3/4 - 150, layerHeight * 2);
+        
+        // Draw data flow arrows
+        drawArrow(ctx, centerX + 100, layerHeight * 1 + 50, centerX + 100, layerHeight * 2 - 50);
+        drawArrow(ctx, centerX + 100, layerHeight * 2 + 50, centerX + 100, layerHeight * 3 - 50);
+        drawArrow(ctx, centerX + 150, layerHeight * 2, width * 3/4 - 150, layerHeight * 2);
+      }
+    });
+    
+    // Helper function to draw a layer
+    function drawLayer(ctx, x, y, label, color) {
+      const width = 200;
+      const height = 80;
+      
+      // Draw rounded rectangle
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(x - width/2, y - height/2);
+      ctx.lineTo(x + width/2 - 15, y - height/2);
+      ctx.arcTo(x + width/2, y - height/2, x + width/2, y - height/2 + 15, 15);
+      ctx.lineTo(x + width/2, y + height/2 - 15);
+      ctx.arcTo(x + width/2, y + height/2, x + width/2 - 15, y + height/2, 15);
+      ctx.lineTo(x - width/2 + 15, y + height/2);
+      ctx.arcTo(x - width/2, y + height/2, x - width/2, y + height/2 - 15, 15);
+      ctx.lineTo(x - width/2, y - height/2 + 15);
+      ctx.arcTo(x - width/2, y - height/2, x - width/2 + 15, y - height/2, 15);
+      ctx.closePath();
+      ctx.fill();
+      
+      // Draw label
+      ctx.fillStyle = 'white';
+      ctx.font = '14px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, y);
+    }
+    
+    // Helper function to draw a connection line
+    function drawConnection(ctx, x1, y1, x2, y2) {
+      ctx.strokeStyle = '#1E293B';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    }
+    
+    // Helper function to draw an arrow
+    function drawArrow(ctx, fromx, fromy, tox, toy) {
+      const headlen = 10;
+      const dx = tox - fromx;
+      const dy = toy - fromy;
+      const angle = Math.atan2(dy, dx);
+      
+      ctx.strokeStyle = '#1E293B';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(fromx, fromy);
+      ctx.lineTo(tox, toy);
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.moveTo(tox, toy);
+      ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+      ctx.lineTo(tox, toy);
+      ctx.fill();
+    }
+    
+    // Architecture module accordion
+    document.querySelectorAll('.architecture-module').forEach(module => {
+      module.addEventListener('click', () => {
+        const content = module.querySelector('.architecture-content');
+        const icon = module.querySelector('.fa-chevron-down');
+        
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      });
+    });
+    
+    // Set the first style button as active by default
+    document.querySelector('.style-btn[data-style="realistic"]')?.classList.add('active', 'border-primary', 'bg-primary/10');
+    document.querySelector('.style-btn[data-style="realistic"]')?.classList.remove('border-gray-300');
+  </script>
+</body>
+</html>  
