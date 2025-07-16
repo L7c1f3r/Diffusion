@@ -1,9 +1,13 @@
 import os
 import subprocess
 import shutil
+from flask import Flask, request, jsonify
+import os
+from all_in_one_scripts import run_pipeline
+from werkzeug.utils import secure_filename
 
 
-def run_feature_extraction(image_path, exp_name, configs_dir, models_dir):
+def run_feature_extraction(image_path, exp_name,working_dir, configs_dir, models_dir):
     """
     Step 1: Feature Extraction
     """
@@ -15,11 +19,11 @@ def run_feature_extraction(image_path, exp_name, configs_dir, models_dir):
         "--precision", "autocast"
     ]
     print("Running Feature Extraction...")
-    subprocess.run(cmd, check=True)
+    subprocess.run(cmd, check=True, cwd=working_dir)
     print("Feature Extraction completed.\n")
 
 
-def run_pnp(exp_name, configs_dir, models_dir):
+def run_pnp(exp_name, configs_dir, working_dir, models_dir):
     """
     Step 2: Plug-and-Play (PnP) Image Generation
     """
@@ -31,7 +35,7 @@ def run_pnp(exp_name, configs_dir, models_dir):
         "--precision", "autocast"
     ]
     print("Running PnP Generation...")
-    subprocess.run(cmd, check=True)
+    subprocess.run(cmd, check=True, cwd=working_dir)
     print("PnP Generation completed.\n")
 
 
@@ -56,7 +60,7 @@ def copy_pnp_outputs(exp_output_root, content_images_dir):
     return copied_count
 
 
-def run_styleid(content_dir, style_dir, output_dir, configs_dir, models_dir, precomputed_dir):
+def run_styleid(working_dir, content_dir, style_dir, output_dir, configs_dir, models_dir, precomputed_dir):
     """
     Step 3: StyleID-based Style Transfer
     """
@@ -71,7 +75,7 @@ def run_styleid(content_dir, style_dir, output_dir, configs_dir, models_dir, pre
         "--precision", "autocast"
     ]
     print("Running StyleID...")
-    subprocess.run(cmd, check=True)
+    subprocess.run(cmd, check=True, cwd=working_dir)
     print("StyleID completed.\n")
 
 
@@ -98,6 +102,7 @@ def main():
     run_feature_extraction(
         image_path=input_image,
         exp_name=experiment_name,
+        working_dir="./plug-and-play-main",
         configs_dir=configs_directory,
         models_dir=models_directory
     )
@@ -106,6 +111,7 @@ def main():
     run_pnp(
         exp_name=experiment_name,
         configs_dir=configs_directory,
+        working_dir="./plug-and-play-main",
         models_dir=models_directory
     )
 
@@ -117,6 +123,7 @@ def main():
 
     # ----------- Step 3: StyleID -----------
     run_styleid(
+        working_dir="./StyleID-main",
         content_dir=content_images_dir,
         style_dir=style_images_dir,
         output_dir=final_output_dir,
