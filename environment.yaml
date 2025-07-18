@@ -30,3 +30,17 @@ dependencies:
     - requests==2.24.0
     # - -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
     # - -e git+https://github.com/openai/CLIP.git@main#egg=clip
+    - blinker==1.9.0
+    - certifi==2025.7.14
+    - charset-normalizer==3.4.2
+    - click==8.2.1
+    - dotenv==0.9.9
+    - filelock==3.18.0
+    - Flask==3.1.1
+    - flask-cors==6.0.1
+    - fsspec==2025.7.0 
+    - idna==3.10
+    - tencentcloud-sdk-python-aiart==3.0.1425
+    - tencentcloud-sdk-python-common==3.0.1425
+    - typing_extensions==4.14.1
+    - tzdata==2025.2

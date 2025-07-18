@@ -273,12 +273,20 @@
     </div>
   </section>
 
-  <!-- System Architecture Section -->
+  <!-- Framework Workflow Section -->
   <section id="architecture" class="py-24 bg-blue-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">Framework Workflow</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto text-justify">
+          The framework uses PnP for initial image generation, maintaining detail and structure, and then refines the output with StyleID for better stylistic variation.This design leverages the high compatibility between PnP and StyleID due to their shared architectural foundations, ensuring smoother integration and better output consistency.
+        </p>
+        <img src="assests/frame_workflow.png" alt="Framework Workflow" class="mx-auto my-8 max-w-full md:max-w-3xl rounded-lg shadow-lg">
+      </div>
+      <!-- System Architecture Section -->
+      <div class="text-center mb-16">
         <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">System Architecture</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">The system architecture is organized into four key layers: Image Acquisition Layer, Edge Computing Layer, Cloud Processing Layer, and User Interaction Layer. This modular design ensures efficient data collection, processing, and transformation, while allowing for scalability and flexibility in real-world AIoT applications.</p>
+        <p class="text-gray-600 max-w-2xl mx-auto text-justify">The system architecture is organized into four key layers: Image Acquisition Layer, Edge Computing Layer, Cloud Processing Layer, and User Interaction Layer. This modular design ensures efficient data collection, processing, and transformation, while allowing for scalability and flexibility in real-world AIoT applications.</p>
       </div>
       
       <!-- System Architecture Diagram -->
@@ -473,7 +481,7 @@
               </div>
               <div class="bg-gray-50 rounded-lg p-4 text-center">
                 <i class="fa fa-server text-2xl text-primary mb-2"></i>
-                <p class="text-sm font-medium">FastAPI</p>
+                <p class="text-sm font-medium">Flask</p>
               </div>
               <div class="bg-gray-50 rounded-lg p-4 text-center">
                 <i class="fa fa-mobile text-2xl text-primary mb-2"></i>
@@ -481,7 +489,7 @@
               </div>
               <div class="bg-gray-50 rounded-lg p-4 text-center">
                 <i class="fa fa-cubes text-2xl text-primary mb-2"></i>
-                <p class="text-sm font-medium">TensorRT</p>
+                <p class="text-sm font-medium">Hugging Face</p>
               </div>
               <div class="bg-gray-50 rounded-lg p-4 text-center">
                 <i class="fa fa-wifi text-2xl text-primary mb-2"></i>
@@ -489,7 +497,7 @@
               </div>
               <div class="bg-gray-50 rounded-lg p-4 text-center">
                 <i class="fa fa-cloud text-2xl text-primary mb-2"></i>
-                <p class="text-sm font-medium">AWS IoT</p>
+                <p class="text-sm font-medium">Tecent Cloud</p>
               </div>
             </div>
           </div>
@@ -525,15 +533,6 @@
                 </div>
                 <div class="w-full bg-gray-200 rounded-full h-2">
                   <div class="bg-accent h-2 rounded-full" style="width: 89%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-sm mb-1">
-                  <span>Edge Device Power Consumption</span>
-                  <span class="font-medium">5.8W</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
-                  <div class="bg-dark h-2 rounded-full" style="width: 45%"></div>
                 </div>
               </div>
             </div>
@@ -704,52 +703,15 @@
   <!-- Footer -->
   <footer class="bg-dark text-white py-12">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center">
-        <div class="grid md:grid-cols-3 gap-8 max-w-4xl">
-          <div class="text-center">
-            <h3 class="text-xl font-bold mb-4">AIoT Landscape Transformer</h3>
-            <p class="text-gray-400 mb-4">
-              Seasonal landscape transformation system based on AIoT technology, providing innovative solutions for digital image processing.
-            </p>
-            <div class="flex space-x-4 justify-center">
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <i class="fa fa-github"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <i class="fa fa-linkedin"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <i class="fa fa-twitter"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
-                <i class="fa fa-youtube-play"></i>
-              </a>
-            </div>
-          </div>
-          
-          <div class="text-center">
-            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul class="space-y-2">
-              <li><a href="#hero" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
-              <li><a href="#demo" class="text-gray-400 hover:text-white transition-colors duration-300">Demo</a></li>
-              <li><a href="#architecture" class="text-gray-400 hover:text-white transition-colors duration-300">Architecture</a></li>
-              <li><a href="#team" class="text-gray-400 hover:text-white transition-colors duration-300">Team</a></li>
-            </ul>
-          </div>
-          
-          <div class="text-center">
-            <h4 class="text-lg font-semibold mb-4">Resources</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Project Documentation</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Research Papers</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">API Documentation</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">User Guides</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQs</a></li>
-            </ul>
-          </div>
+      <div class="text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start mb-4">
+          <h3 class="text-xl font-bold mr-2">AIoT Landscape Transformer</h3>
+          <a href="https://github.com/L7c1f3r/Diffusion/" class="text-gray-400 hover:text-white transition-colors duration-300 text-2xl" target="_blank"><i class="fa fa-github"></i></a>
         </div>
+        <p class="text-gray-400 mb-4 text-justify">
+          Seasonal landscape transformation system based on AIoT technology, providing innovative solutions for digital image processing.
+        </p>
       </div>
-      
       <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
         <p>© 2025 AIoT Landscape Transformer. All rights reserved.</p>
       </div>
