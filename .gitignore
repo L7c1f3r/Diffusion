@@ -2,3 +2,9 @@ StyleID-main/CLIP/
 StyleID-main/taming-transformers/
 plug-and-play-main/CLIP/
 plug-and-play-main/taming-transformers/
+__pycache__/all_in_one_scripts.cpython-311.pyc
+outputs/*
+.env
+*.jpg
+.DS_Store
+

@@ -49,7 +49,7 @@
     }
   </style>
 </head>
-<body class="font-inter bg-light text-dark antialiased">
+<body class="font-inter bg-gradient-to-br from-slate-50via-blue-50 to-indigo-50 text-dark antialiased">
   <!-- Navigation Bar -->
   <header id="navbar" class="fixed top-0 left-0 right-0 z-[50] transition-all duration-300 bg-transparent">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,7 +145,7 @@
       
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Left: Input Area -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 md:col-span-1">
+        <div class="bg-blue-50 rounded-2xl shadow-lg p-6 md:col-span-1">
           <h3 class="text-xl font-semibold mb-6 flex items-center">
             <i class="fa fa-upload text-primary mr-2"></i> Input Image
           </h3>
@@ -196,7 +196,7 @@
             <!-- Parameter Adjustment -->
             <div>
               <label class="block text-gray-700 mb-2 font-medium">Season Intensity</label>
-              <input type="range" id="intensity-slider" min="1" max="10" value="7" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary">
+              <input type="range" id="intensity-slider" min="0" max="10" value="7" step="0.5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary">
               <div class="flex justify-between text-xs text-gray-500 mt-1">
                 <span>Low</span>
                 <span>High</span>
@@ -222,7 +222,7 @@
         </div>
         
         <!-- Right: Results Display Area -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 md:col-span-2">
+        <div class="bg-blue-50 rounded-2xl shadow-lg p-6 md:col-span-2">
           <h3 class="text-xl font-semibold mb-6 flex items-center">
             <i class="fa fa-eye text-primary mr-2"></i> Results Preview
           </h3>
@@ -248,11 +248,11 @@
               <!-- Generated Image -->
               <div>
                 <h4 class="text-gray-700 font-medium mb-2">
-                  <span id="generated-season">Spring</span> Transformation Result
+                  Transformation Result
                 </h4>
                 <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
-                  <img id="generated-image" src="" alt="Generated image" class="w-full h-full object-cover">
-                  <div class="absolute top-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">AI Generated</div>
+                  <img id="generated-image" src="" alt="Generated image" class="w-full h-full object-cover hidden">
+                  <div class="absolute bottom-3 right-3 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">Generated</div>
                 </div>
               </div>
             </div>
@@ -280,26 +280,50 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">System Architecture</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Our AIoT system integrates state-of-the-art artificial intelligence and Internet of Things technologies to achieve efficient landscape seasonal transformation.</p>
+        <p class="text-gray-600 max-w-2xl mx-auto">The system architecture is organized into four key layers: Image Acquisition Layer, Edge Computing Layer, Cloud Processing Layer, and User Interaction Layer. This modular design ensures efficient data collection, processing, and transformation, while allowing for scalability and flexibility in real-world AIoT applications.</p>
       </div>
       
       <!-- System Architecture Diagram -->
-      <div class="relative mb-16">
-        <div class="h-[400px] bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
-          <canvas id="architecture-diagram" class="w-full h-full"></canvas>
+      <div class="relative mb-16 overflow-visible">
+        <div class="h-[500px] bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 relative overflow-hidden border border-gray-100">
+          <!-- 背景装饰 -->
+          <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 25% 30%, #165DFF 1px, transparent 1px), radial-gradient(circle at 75% 70%, #8B5CF6 1px, transparent 1px); background-size: 60px 60px;"></div>
+          <!-- 架构层标签 -->
+          <div class="absolute left-[25%] top-[20%] w-64 flex items-center justify-center">
+            <div class="bg-primary text-white px-6 py-4 rounded-2xl shadow-xl text-lg font-semibold border-2 border-primary/30 flex items-center gap-2 cursor-pointer hover:bg-primary/90 transition-all duration-300" onclick="showLayerInfo('acquisition')">
+              <i class="fa fa-camera"></i> Image Acquisition Layer
+            </div>
+          </div>
+          <div class="absolute left-[25%] top-[45%] w-64 flex items-center justify-center">
+            <div class="bg-accent text-white px-6 py-4 rounded-2xl shadow-xl text-lg font-semibold border-2 border-accent/30 flex items-center gap-2 cursor-pointer hover:bg-accent/90 transition-all duration-300" onclick="showLayerInfo('edge')">
+              <i class="fa fa-microchip"></i> Edge Computing Layer
+            </div>
+          </div>
+          <div class="absolute left-[25%] top-[70%] w-64 flex items-center justify-center">
+            <div class="bg-secondary text-dark px-6 py-4 rounded-2xl shadow-xl text-lg font-semibold border-2 border-secondary/30 flex items-center gap-2 cursor-pointer hover:bg-secondary/90 transition-all duration-300" onclick="showLayerInfo('cloud')">
+              <i class="fa fa-cloud"></i> Cloud Processing Layer
+            </div>
+          </div>
+          <div class="absolute right-[25%] top-1/2 -translate-y-1/2 w-72 flex items-center justify-center">
+            <div class="bg-dark text-white px-8 py-6 rounded-2xl shadow-2xl text-lg font-semibold border-2 border-dark/30 flex items-center gap-2 cursor-pointer hover:bg-dark/90 transition-all duration-300" onclick="showLayerInfo('user')">
+              <i class="fa fa-users"></i> User Interaction Layer
+            </div>
+          </div>
           
-          <!-- Architecture Diagram Labels -->
-          <div class="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-            Image Acquisition Layer
-          </div>
-          <div class="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-            Edge Computing Layer
-          </div>
-          <div class="absolute top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 bg-secondary text-dark px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-            Cloud Processing Layer
-          </div>
-          <div class="absolute top-1/2 left-3/4 transform -translate-x-1/2 -translate-y-1/2 bg-dark text-white px-4 py-2 rounded-lg shadow-lg text-sm font-medium">
-            User Interaction Layer
+          <!-- 模态窗口 -->
+          <div id="layerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+              <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 id="modalTitle" class="text-2xl font-bold text-gray-800"></h3>
+                  <button onclick="closeLayerInfo()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+                <div id="modalContent" class="text-gray-600 space-y-4">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -312,89 +336,123 @@
           
           <div class="space-y-4">
             <!-- Module 1 -->
-            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+            <div class="architecture-module bg-blue-50 rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
               <div class="flex items-center justify-between">
                 <h4 class="font-medium text-lg flex items-center">
-                  <i class="fa fa-camera text-primary mr-2"></i> Intelligent Image Acquisition Module
+                  <i class="fa fa-camera text-primary mr-2"></i> Intelligent Image Acquisition
                 </h4>
                 <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
               </div>
               <div class="architecture-content mt-4 hidden">
                 <p class="text-gray-600 mb-4">
-                  An IoT-based intelligent camera system capable of automatically sensing environmental light, weather conditions, and scene features,
-                  and performing real-time image preprocessing, including noise reduction, enhancement, and image quality assessment.
+                  An IoT-based intelligent camera system capable of automatically sensing environmental light, weather conditions, and scene features, and performing real-time image preprocessing, including noise reduction, enhancement, and image quality assessment.
                 </p>
                 <ul class="text-gray-600 list-disc pl-5 space-y-1">
-                  <li>Multispectral image acquisition</li>
-                  <li>Adaptive exposure control</li>
-                  <li>Real-time image quality analysis</li>
-                  <li>Low-power design</li>
+                  <li>Multispectral Image Acquisition: Captures images across different wavelengths to enhance scene detail.</li>
+                  <li>Adaptive Exposure Control: Adjusts exposure in real-time to ensure optimal image quality.</li>
+                  <li>Real-time Image Quality Analysis: Analyzes captured images instantly for quality assurance.</li>
+                  <li>Low-Power Design: Optimized for energy efficiency, making it suitable for continuous deployment in resource-constrained environments.</li>
                 </ul>
               </div>
             </div>
             
             <!-- Module 2 -->
-            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+            <div class="architecture-module bg-blue-50 rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
               <div class="flex items-center justify-between">
                 <h4 class="font-medium text-lg flex items-center">
-                  <i class="fa fa-microchip text-primary mr-2"></i> Edge Computing Processing Module
+                  <i class="fa fa-microchip text-primary mr-2"></i> Edge Computing Processing
                 </h4>
                 <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
               </div>
               <div class="architecture-content mt-4 hidden">
                 <p class="text-gray-600 mb-4">
-                  A lightweight AI processing unit deployed on edge devices capable of performing preliminary image processing and feature extraction,
-                  reducing data transmission volume, improving system response speed, and supporting offline operation modes.
+                  A lightweight AI processing unit deployed on edge devices capable of performing preliminary image processing and feature extraction, reducing data transmission volume, improving system response speed, and supporting offline operation modes.
                 </p>
                 <ul class="text-gray-600 list-disc pl-5 space-y-1">
-                  <li>Lightweight CNN model</li>
-                  <li>Feature extraction and encoding</li>
-                  <li>Data compression and transmission optimization</li>
-                  <li>Edge caching strategy</li>
+                  <li>Lightweight CNN Model: Uses a compact convolutional neural network to process images with minimal computational overhead.</li>
+                  <li>Feature Extraction and Encoding: Extracts and encodes key features from the image for efficient processing.</li>
+                  <li>Data Compression and Transmission Optimization: Reduces the size of data before transmission, improving bandwidth usage.</li>
+                  <li>Edge Caching Strategy: Implements a caching mechanism to store intermediate results locally, ensuring quicker access and offline functionality.</li>
                 </ul>
               </div>
             </div>
             
             <!-- Module 3 -->
-            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+            <div class="architecture-module bg-blue-50 rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
               <div class="flex items-center justify-between">
                 <h4 class="font-medium text-lg flex items-center">
-                  <i class="fa fa-cloud text-primary mr-2"></i> Cloud AI Processing Center
+                  <i class="fa fa-wifi text-primary mr-2"></i> Data Transmission
                 </h4>
                 <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
               </div>
               <div class="architecture-content mt-4 hidden">
                 <p class="text-gray-600 mb-4">
-                  A deep learning-based seasonal transformation model trained on large-scale datasets, capable of understanding scene content and performing reasonable seasonal transformations,
-                  while supporting continuous model learning and optimization.
+                  Responsible for transferring image data from the edge devices to the cloud for further processing and analysis. This module ensures efficient and secure data transfer.
                 </p>
                 <ul class="text-gray-600 list-disc pl-5 space-y-1">
-                  <li>Transformer architecture model</li>
-                  <li>Multimodal fusion technology</li>
-                  <li>Semantic understanding and scene analysis</li>
-                  <li>Continuous model learning</li>
+                  <li>Efficient Data Communication: Uses lightweight protocols such as MQTT or HTTP for reliable data transmission.</li>
+                  <li>Real-time Data Streaming: Ensures that image data is transmitted in real-time to the cloud for instant processing.</li>
+                  <li>Data Encryption and Security: Provides secure transmission to protect sensitive information.</li>
                 </ul>
               </div>
             </div>
             
             <!-- Module 4 -->
-            <div class="architecture-module bg-white rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+            <div class="architecture-module bg-blue-50 rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
               <div class="flex items-center justify-between">
                 <h4 class="font-medium text-lg flex items-center">
-                  <i class="fa fa-users text-primary mr-2"></i> User Interface
+                  <i class="fa fa-cloud text-primary mr-2"></i> Cloud Processing
                 </h4>
                 <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
               </div>
               <div class="architecture-content mt-4 hidden">
                 <p class="text-gray-600 mb-4">
-                  An intuitive and user-friendly interface supporting multiple input and output methods, including image upload, camera real-time preview, parameter adjustment, etc.,
-                  while providing result display and sharing functions.
+                  Handles the computationally intensive tasks of image style transfer using models like PnP and StyleID. This module performs seasonal image transformations, ensuring high-quality outputs with minimal latency.
                 </p>
                 <ul class="text-gray-600 list-disc pl-5 space-y-1">
-                  <li>Responsive web interface</li>
-                  <li>Parameterized control</li>
-                  <li>Multi-device support</li>
-                  <li>Result comparison and evaluation</li>
+                  <li>PnP + StyleID Integration: Combines the PnP and StyleID models to perform high-quality seasonal scene translation.</li>
+                  <li>Model Inference on High-Performance Servers: Offloads processing tasks to powerful cloud servers equipped with GPUs.</li>
+                  <li>Scalable Deployment: Supports multiple edge devices by scaling processing resources as needed.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Module 5 -->
+            <div class="architecture-module bg-blue-50 rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center justify-between">
+                <h4 class="font-medium text-lg flex items-center">
+                  <i class="fa fa-desktop text-primary mr-2"></i> User Interface
+                </h4>
+                <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+              </div>
+              <div class="architecture-content mt-4 hidden">
+                <p class="text-gray-600 mb-4">
+                  Provides a platform for users to interact with the system, offering an interface to input image data, define target seasons, and visualize the transformed images.
+                </p>
+                <ul class="text-gray-600 list-disc pl-5 space-y-1">
+                  <li>Interactive Dashboards: Allows users to select images, set prompts, and view generated seasonal images.</li>
+                  <li>Real-time Visualization: Displays transformed images in real-time after cloud processing.</li>
+                  <li>Customization Options: Provides tools for fine-tuning seasonal effects and image aesthetics.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Module 6 -->
+            <div class="architecture-module bg-blue-50 rounded-xl shadow p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center justify-between">
+                <h4 class="font-medium text-lg flex items-center">
+                  <i class="fa fa-comments text-primary mr-2"></i> Feedback and Optimization
+                </h4>
+                <i class="fa fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+              </div>
+              <div class="architecture-content mt-4 hidden">
+                <p class="text-gray-600 mb-4">
+                  Gathers user feedback and performance data to continuously improve the system's output quality and efficiency.
+                </p>
+                <ul class="text-gray-600 list-disc pl-5 space-y-1">
+                  <li>User Interaction Data: Collects data on user preferences and satisfaction with the generated images.</li>
+                  <li>Model Refinement: Uses feedback to fine-tune the model for better results in future tasks.</li>
+                  <li>Performance Monitoring: Tracks the system's performance to identify areas for optimization.</li>
                 </ul>
               </div>
             </div>
@@ -406,7 +464,7 @@
           <h3 class="text-xl font-semibold mb-6">Technical Details</h3>
           
           <!-- Technology Stack -->
-          <div class="bg-white rounded-xl shadow p-6 mb-8">
+          <div class="bg-blue-50 rounded-xl shadow p-6 mb-8">
             <h4 class="font-medium text-lg mb-4 flex items-center">
               <i class="fa fa-code text-primary mr-2"></i> Technology Stack
             </h4>
@@ -439,7 +497,7 @@
           </div>
           
           <!-- Performance Metrics -->
-          <div class="bg-white rounded-xl shadow p-6 mb-8">
+          <div class="bg-blue-50 rounded-xl shadow p-6 mb-8">
             <h4 class="font-medium text-lg mb-4 flex items-center">
               <i class="fa fa-chart-line text-primary mr-2"></i> System Performance
             </h4>
@@ -484,14 +542,45 @@
           </div>
           
           <!-- Model Architecture -->
-          <div class="bg-white rounded-xl shadow p-6">
+          <div class="bg-blue-50 rounded-xl shadow p-6">
             <h4 class="font-medium text-lg mb-4 flex items-center">
-              <i class="fa fa-sitemap text-primary mr-2"></i> Model Architecture
+              <i class="fa fa-sitemap text-primary mr-2"></i> Diffusion Models
             </h4>
-            <p class="text-gray-600 mb-4">
-              Our seasonal transformation model is based on the Transformer architecture, combining semantic segmentation and style transfer technologies to understand scene content and perform reasonable seasonal transformations.
+            <p class="text-gray-600 mb-6">
+              Our system utilizes advanced diffusion models for high-quality seasonal image transformation, combining multiple state-of-the-art techniques to achieve superior results.
             </p>
-            <img src="https://picsum.photos/id/1/600/300" alt="Model architecture diagram" class="w-full h-auto rounded-lg">
+            
+            <div class="space-y-4">
+              <!-- ControlNet -->
+              <div class="bg-white rounded-lg p-4 border border-gray-200">
+                <h5 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fa fa-cogs text-blue-600 mr-2"></i> ControlNet
+                </h5>
+                <p class="text-gray-600 text-sm">
+                  A neural network architecture that adds spatial conditioning controls to diffusion models, enabling precise control over image generation through various input conditions such as edge maps, depth maps, and segmentation masks.
+                </p>
+              </div>
+              
+              <!-- PnP -->
+              <div class="bg-white rounded-lg p-4 border border-gray-200">
+                <h5 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fa fa-puzzle-piece text-green-600 mr-2"></i> PnP (Plug-and-Play)
+                </h5>
+                <p class="text-gray-600 text-sm">
+                  A flexible framework that allows for the integration of various pre-trained models and denoisers into the diffusion process, providing enhanced control over the generation process and enabling more sophisticated image transformations.
+                </p>
+              </div>
+              
+              <!-- StyleID -->
+              <div class="bg-white rounded-lg p-4 border border-gray-200">
+                <h5 class="font-semibold text-gray-800 mb-2 flex items-center">
+                  <i class="fa fa-magic text-purple-600 mr-2"></i> StyleID
+                </h5>
+                <p class="text-gray-600 text-sm">
+                  A specialized diffusion model designed for style transfer and artistic rendering, capable of applying various artistic styles and seasonal effects to landscape images while maintaining structural integrity and visual coherence.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -508,12 +597,12 @@
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Team Member 1 -->
-        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+        <div class="bg-blue-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <div class="relative">
-            <img src="https://picsum.photos/id/1005/400/500" alt="Zhang Ming - Team Leader" class="w-full h-64 object-cover">
+            <img src="https://picsum.photos/id/1005/400/500" alt="Kong Weili - Team Leader" class="w-full h-64 object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-xl font-bold text-white">Zhang Ming</h3>
+              <h3 class="text-xl font-bold text-white">Kong Weili</h3>
               <p class="text-white/80">Team Leader & Algorithm Engineer</p>
             </div>
           </div>
@@ -536,12 +625,12 @@
         </div>
         
         <!-- Team Member 2 -->
-        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+        <div class="bg-blue-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <div class="relative">
-            <img src="https://picsum.photos/id/1006/400/500" alt="Li Ting - Hardware Engineer" class="w-full h-64 object-cover">
+            <img src="https://picsum.photos/id/1006/400/500" alt="Lin Jingming - Hardware Engineer" class="w-full h-64 object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-xl font-bold text-white">Li Ting</h3>
+              <h3 class="text-xl font-bold text-white">Lin Jingming</h3>
               <p class="text-white/80">Hardware Engineer</p>
             </div>
           </div>
@@ -564,12 +653,12 @@
         </div>
         
         <!-- Team Member 3 -->
-        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+        <div class="bg-blue-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <div class="relative">
-            <img src="https://picsum.photos/id/1012/400/500" alt="Wang Hao - Software Engineer" class="w-full h-64 object-cover">
+            <img src="https://picsum.photos/id/1012/400/500" alt="Wang Tianyang - Software Engineer" class="w-full h-64 object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-xl font-bold text-white">Wang Hao</h3>
+              <h3 class="text-xl font-bold text-white">Wang Tianyang</h3>
               <p class="text-white/80">Software Engineer</p>
             </div>
           </div>
@@ -592,12 +681,12 @@
         </div>
         
         <!-- Team Member 4 -->
-        <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+        <div class="bg-blue-50 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
           <div class="relative">
-            <img src="https://picsum.photos/id/1027/400/500" alt="Chen Yu - UI/UX Designer" class="w-full h-64 object-cover">
+            <img src="https://picsum.photos/id/1027/400/500" alt="Huo Yiming - UI/UX Designer" class="w-full h-64 object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-xl font-bold text-white">Chen Yu</h3>
+              <h3 class="text-xl font-bold text-white">Huo Yiming</h3>
               <p class="text-white/80">UI/UX Designer</p>
             </div>
           </div>
@@ -632,7 +721,7 @@
       
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <div class="bg-white rounded-2xl shadow-lg p-8">
+          <div class="bg-blue-50 rounded-2xl shadow-lg p-8">
             <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
             <form id="contact-form" class="space-y-6">
               <div>
@@ -655,7 +744,7 @@
         </div>
         
         <div class="space-y-8">
-          <div class="bg-white rounded-2xl shadow-lg p-8">
+          <div class="bg-blue-50 rounded-2xl shadow-lg p-8">
             <h3 class="text-xl font-semibold mb-6">Project Information</h3>
             <div class="space-y-4">
               <div class="flex items-start">
@@ -688,7 +777,7 @@
             </div>
           </div>
           
-          <div class="bg-white rounded-2xl shadow-lg p-8">
+          <div class="bg-blue-50 rounded-2xl shadow-lg p-8">
             <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
             <div class="space-y-4">
               <div class="flex items-center">
@@ -861,12 +950,23 @@
         const reader = new FileReader();
         
         reader.onload = (e) => {
+          console.log('图片已读取', e.target.result);
+          // 上传新图片后，显示在Original Image区域
           originalImage.src = e.target.result;
-          defaultMessage.classList.add('hidden');
-          resultContainer.classList.remove('hidden');
-          generatedImage.src = 'https://picsum.photos/id/1039/800/600'; // Example image
+          // 重置右侧结果区
+          resultContainer.classList.add('hidden');
+          defaultMessage.classList.remove('hidden');
+          generatedImage.src = '';
+          generatedImage.classList.add('hidden'); // 隐藏生成图片
+          // 上传成功提示
+          alert('图片上传成功！');
         };
-        
+
+        reader.onerror = (e) => {
+          // 上传失败提示
+          alert('图片上传失败，请重试！');
+        };
+
         reader.readAsDataURL(e.target.files[0]);
       }
     });
@@ -915,56 +1015,76 @@
       const ctx = canvas.getContext('2d');
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
       
+      // 拍照后，显示在Original Image区域
       originalImage.src = canvas.toDataURL('image/jpeg');
-      defaultMessage.classList.add('hidden');
-      resultContainer.classList.remove('hidden');
-      generatedImage.src = 'https://picsum.photos/id/1039/800/600'; // Example image
-      
+      // 重置右侧结果区
+      resultContainer.classList.add('hidden');
+      defaultMessage.classList.remove('hidden');
+      generatedImage.src = '';
+      generatedImage.classList.add('hidden'); // 隐藏生成图片
+
       cameraView.classList.add('hidden');
       stopCamera();
     });
     
     // Generate button click event
-    generateButton.addEventListener('click', () => {
+    generateButton.addEventListener('click', async () => {
+      // 1. 检查图片
       if (!originalImage.src) {
         alert('Please upload an image or use the camera first');
         return;
       }
-      
-      // Show loading state
+
+      // 2. 获取参数
+      const season = seasonSelect.value; // 'spring' | 'summer' | 'autumn' | 'winter'
+      const strength = intensitySlider.value /10.0 ; // 0-10
+      const style_id = document.querySelector('.style-btn.active')?.dataset.style || 'Realistic';
+
+      // 3. 获取图片数据
+      let imageBlob;
+      if (fileInput.files && fileInput.files[0]) {
+        // 用户上传
+        imageBlob = fileInput.files[0];
+      } else if (originalImage.src.startsWith('data:')) {
+        // 拍照，base64 转 blob
+        const res = await fetch(originalImage.src);
+        imageBlob = await res.blob();
+      } else {
+        alert('No image found');
+        return;
+      }
+
+      // 4. 构造 FormData
+      const formData = new FormData();
+      formData.append('input_image', imageBlob, 'input.jpg');
+      formData.append('season', season);
+      formData.append('strength', strength);
+      formData.append('style_id', style_id);
+
+      // 5. 显示 loading
       loadingIndicator.classList.remove('hidden');
       resultContainer.classList.add('hidden');
-      
-      // Update text based on selected season
-      const seasonMap = {
-        'spring': 'Spring',
-        'summer': 'Summer',
-        'autumn': 'Autumn',
-        'winter': 'Winter'
-      };
-      generatedSeason.textContent = seasonMap[seasonSelect.value];
-      
-      // Simulate API call (replace with actual API call in a real project)
-      setTimeout(() => {
-        // In a real project, this would call a model on the server to generate the image
-        // For example: fetch('/api/generate', { method: 'POST', body: formData })
-        // Then process the returned result
-        
-        // Simulate generated image
-        const style = document.querySelector('.style-btn.active')?.dataset.style || 'realistic';
-        let imageId = 1039; // Default realistic style
-        
-        // Select different example images based on style
-        if (style === 'artistic') imageId = 1018;
-        if (style === 'watercolor') imageId = 1043;
-        if (style === 'cartoon') imageId = 1074;
-        
-        generatedImage.src = `https://picsum.photos/id/${imageId}/800/600`;
-        
-        // Hide loading state, show result
+
+      // 6. 发送请求
+      try {
+        const response = await fetch('http://127.0.0.1:3060/api/generate', {
+          method: 'POST',
+          body: formData
+        });
+        if (!response.ok) throw new Error('Server error');
+        const data = await response.json();
+
+        // 7. 显示生成图片
+        console.log('图片URL:', data.generated_image_url);
+        generatedImage.src = data.generated_image_url;
+        generatedImage.classList.remove('hidden'); // 显示生成图片
         loadingIndicator.classList.add('hidden');
         resultContainer.classList.remove('hidden');
-      }, 2000); // Simulate 2-second processing time
+        defaultMessage.classList.add('hidden');
+      } catch (err) {
+        loadingIndicator.classList.add('hidden');
+        alert('Failed to generate image: ' + err.message);
+      }
     });
     
     // Download button click event
@@ -1111,6 +1231,78 @@
     // Set the first style button as active by default
     document.querySelector('.style-btn[data-style="realistic"]')?.classList.add('active', 'border-primary', 'bg-primary/10');
     document.querySelector('.style-btn[data-style="realistic"]')?.classList.remove('border-gray-300');
+    
+    // Layer info modal functionality
+    function showLayerInfo(layerName) {
+      const modalTitle = document.getElementById('modalTitle');
+      const modalContent = document.getElementById('modalContent');
+      const layerModal = document.getElementById('layerModal');
+      
+      // Clear previous content
+      modalContent.innerHTML = '';
+      
+      // Set modal title
+      modalTitle.textContent = `${layerName.charAt(0).toUpperCase() + layerName.slice(1)} Layer`;
+      
+      // Add content based on layerName
+      let content = '';
+      switch (layerName) {
+        case 'acquisition':
+          content = `
+            <p class="mb-4">This layer involves the collection of raw image data from IoT-based edge devices such as smart cameras, drones, and environmental sensors. The main task of this layer is to capture high-resolution landscape images, ensuring that data quality is optimal for further processing. It handles tasks like:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Multispectral Image Acquisition:</strong> Capturing images in various spectral bands for richer detail.</li>
+              <li><strong>Adaptive Exposure Control:</strong> Adjusting exposure based on environmental conditions.</li>
+              <li><strong>Real-time Image Quality Analysis:</strong> Ensuring the quality of images immediately after capture.</li>
+            </ul>
+          `;
+          break;
+        case 'edge':
+          content = `
+            <p class="mb-4">The Edge Computing Layer is responsible for performing preliminary image processing and feature extraction directly on the edge devices, thereby reducing the amount of data that needs to be transmitted to the cloud. This layer ensures fast processing and improved system responsiveness. Key tasks include:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Lightweight AI Processing:</strong> Edge devices run lightweight CNN models to process images efficiently.</li>
+              <li><strong>Feature Extraction and Encoding:</strong> Identifying and encoding key image features for later use.</li>
+              <li><strong>Data Compression:</strong> Reducing data size before transmission, ensuring efficient use of bandwidth.</li>
+            </ul>
+          `;
+          break;
+        case 'cloud':
+          content = `
+            <p class="mb-4">In the Cloud Processing Layer, the heavy computational tasks of image transformation and seasonal migration are carried out. The proposed PnP + StyleID hybrid framework is deployed in the cloud, leveraging high-performance GPUs for intensive image generation. This layer includes:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Model Inference:</strong> Running the PnP and StyleID models for seasonal transformation of landscape images.</li>
+              <li><strong>Data Storage:</strong> Storing the generated images for future retrieval and analysis.</li>
+              <li><strong>Scalability:</strong> Enabling the system to scale for high-demand applications, processing multiple requests simultaneously.</li>
+            </ul>
+          `;
+          break;
+        case 'user':
+          content = `
+            <p class="mb-4">The User Interaction Layer provides the interface for users to interact with the system. It allows users to input original images and textual prompts for seasonal transformation. This layer also provides real-time visualization of the transformed images. Key features include:</p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Interactive Dashboards:</strong> Users can view and adjust the generated seasonal images.</li>
+              <li><strong>Real-time Visualization:</strong> Displaying the transformation results as soon as they are processed.</li>
+              <li><strong>Customization Options:</strong> Offering tools to fine-tune the seasonal migration effects.</li>
+            </ul>
+          `;
+          break;
+      }
+      modalContent.innerHTML = content;
+      layerModal.classList.remove('hidden');
+    }
+    
+    function closeLayerInfo() {
+      document.getElementById('layerModal').classList.add('hidden');
+    }
+    
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+      const layerModal = document.getElementById('layerModal');
+      if (event.target == layerModal) {
+        layerModal.classList.add('hidden');
+      }
+    });
   </script>
 </body>
 </html>  
